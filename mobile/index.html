@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Authentication Demo</title>
+    <link rel="stylesheet" href="css/style.css"></link>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="appworks.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+  </head>
+  <body>
+
+    <div id="intro-wrapper">
+      <div id="intro">
+        <div style="font-weight:bold; text-align:center; margin-bottom:8px;">AppWorks Auth Demo</div>
+        <p>You have a few buttons below which perform authentication in different scenarios</P>
+        <p><b>&quot;Authenticate&quot;</b> will check the session is still valid, and ifit is, will get the authentication object. If it is not, it will perform a reauthentication, and return the object</p>
+        <p><b>&quot;Force Authentication&quot;</b> will perform a reauthentication, and return the authentication object</p>
+        <p><b>&quot;Is Online&quot;</b> will return true if the app is connected to the same network as the gateway or false if not.</p>
+        <p><b>&quot;OTDS SSO Ticket&quot;</b> will get the OTDS SSO Ticket, if it is available, if not, it will request one using the OAuth token.</p>
+      </div>
+    </div>
+
+    <div id="content-wrapper">
+      <div><button type="button" id="go0-button" class="go-button vertical-space" onclick="authenticate();">Authenticate</button></div>
+      <div><button type="button" id="go1-button" class="go-button vertical-space" onclick="authenticate(true);">Force Authentication</button></div>
+      <div><button type="button" id="go2-button" class="go-button vertical-space" onclick="isOnline(true);">Is Online</button></div>
+      <div><button type="button" id="go3-button" class="go-button vertical-space" onclick="getOtdsSsoTicket();">OTDS SSO Ticket</button></div>
+    </div>
+
+    <div id="result-wrapper">
+      <div id="result">
+        Result will appear here.
+    </div>
+
+    <script type="text/javascript">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+      app(document.getElementById("result"));
+    }
+    </script>
+
+    <div id="version">Version 0.4.0</div>
+  </body>
+</html>
